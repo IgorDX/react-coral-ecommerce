@@ -1,0 +1,56 @@
+.header-content{
+    padding-top: 30px;
+    display: flex;
+    padding-bottom: 26px;
+border-bottom: 1px solid #E3E3E3;
+
+    align-items: center;
+    .logo-wrapper{
+        margin-right: 374px;
+        margin-left: 545px;
+    }
+    .user {
+        display: flex;
+        align-items: center;
+        .account{
+            margin-right: 22px;
+        }
+        div{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+            span{
+                font-family: 'Roboto';
+            }
+            img{
+                margin-right: 9px;
+            }
+    }
+        
+    }
+}
+.nav-content{
+    padding-top: 30px;
+}
+.nav{
+    width: 100%;
+
+.nav-menu{
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .nav-link{
+        color: black;
+        text-decoration: none;
+    }
+    }
+}
+
+.shoping-link{
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+}

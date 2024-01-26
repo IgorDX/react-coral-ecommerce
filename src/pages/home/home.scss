@@ -1,0 +1,81 @@
+.home-holder{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home{
+    padding-top: 125px;
+    position: relative;
+
+    .home-content{
+        width: 682px;
+    }
+    h1{
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 300;
+font-size: 74px;
+line-height: 55px;
+text-transform: capitalize;
+color: #000000;
+padding-bottom: 52px;
+    }
+    p{
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 55px;
+text-transform: capitalize;
+color: #000000;
+padding-bottom: 66px;
+    }
+    button{
+        margin-bottom: 154px;
+    }
+}
+
+.flower-pattern{
+    pointer-events: none; 
+    position: absolute;
+    left: 0;
+}
+
+.home-btn{
+    text-decoration: none;
+    background: rgb(30, 40, 50);
+    color: white;
+    padding: 12px 26px;
+    width: 113px;
+    display: flex;
+    align-items: center;
+    border: none;
+    img{
+        height: 30px;
+        width: 30px;
+    }
+}
+
+.woman-img{
+    padding-bottom: 50px;
+}
+
+.brands{
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: 90px;
+}
+
+.explore-styles{
+    margin-bottom: 150px;
+    display: grid;
+    gap: 20px;
+    grid-auto-rows: minmax(180px, auto);
+    grid-template-columns: (repeat(3, 1fr));
+}
+
+.model1{    
+    grid-row: 1/3;
+}
