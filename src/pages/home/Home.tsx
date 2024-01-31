@@ -1,13 +1,13 @@
 import React from 'react'
 import "./home.scss"
 import {Link} from "react-router-dom"
+
 export const Home = () => {
   return (
     <div className='home'>
         <div className="container">
             <div className='home-holder'>
                 <div className="home-content">
-                 <img className='flower-pattern' src="images/flower-pattern.png" alt="" />
                     <h1>Collections</h1>
                     <p>you can explore ans shop many differnt collection
                     from various barands here.</p>
@@ -25,12 +25,14 @@ export const Home = () => {
                     <img src="images/brands/brand4.png" alt="brand" />
                     <img src="images/brands/brand5.png" alt="brand" />
                 </div>
-        <div className="explore-styles">
+        <div className='centered-styles'>
+            <div className="explore-grid">
             <img className='model1' src="images/models/model1.png" alt="model" />
             <img className='model2' src="images/models/model2.png" alt="model" />
             <img className='model3' src="images/models/model3.png" alt="model" />
             <img className='model4' src="images/models/model4.png" alt="model" />
             <img className='model5' src="images/models/model5.png" alt="model" />
+            </div>
         </div>
         </div>
     </div>

@@ -3,7 +3,6 @@ import { Navbar } from './components/navbar/Navbar.tsx';
 import { Footer } from './components/footer/Footer.tsx';
 import {createBrowserRouter, RouterProvider, Route, Link, Outlet} from "react-router-dom"
 import "./styles/global.scss"
-import "./styles/media.scss"
 
 import React from 'react';
 import { Home } from './pages/home/Home.tsx';

@@ -4,6 +4,7 @@
     padding-bottom: 26px;
 border-bottom: 1px solid #E3E3E3;
 
+
     align-items: center;
     .logo-wrapper{
         margin-right: 374px;
@@ -36,9 +37,8 @@ border-bottom: 1px solid #E3E3E3;
     width: 100%;
 
 .nav-menu{
-    width: 100%;
-    list-style-type: none;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     .nav-link{
@@ -53,4 +53,26 @@ border-bottom: 1px solid #E3E3E3;
     color: black;
     display: flex;
     align-items: center;
+}
+
+
+
+@media (max-width:1361px){
+    .header-content{
+        justify-content: space-between;
+    }
+    .header-content .logo-wrapper{
+        margin-left: 0;
+        margin-right: 0;   
+    }
+}
+
+
+@media (max-width:628px){
+    .nav-content{
+        display: none;
+    }
+    .header-content img{
+        display: none;
+    }
 }

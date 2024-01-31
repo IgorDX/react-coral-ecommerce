@@ -9,9 +9,6 @@ export const Shop = () => {
 
     const favoritedString = localStorage.getItem("favorited");
     const favorited = favoritedString ? JSON.parse(favoritedString) : [];
-
-    console.log(favorited)
-
   return (
     <div className='shop-wrapper'>
         <div className="container">

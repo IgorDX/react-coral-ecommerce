@@ -5,7 +5,9 @@ export const Navbar = () => {
   return (
     <header className='header container'>
         <div className="header-content">
+            <div className='loop'>
         <img src="images/loop.svg" alt="Loop" />
+        </div>
         <div className='logo-wrapper'>
             <img src="images/rhombus.svg" alt="Rhombus" />
             <Link className='logo-link' to="">
