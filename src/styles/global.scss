@@ -9,7 +9,13 @@ body{
     max-width: 1380px;
     padding: 0 30px;
     margin: 0 auto;
+
+    @media(max-width: 800px){
+        padding: 0 15px;
+    }
 }
+
+
 
 .logo-wrapper{
     display: flex;

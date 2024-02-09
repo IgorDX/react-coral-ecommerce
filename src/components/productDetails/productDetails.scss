@@ -1,0 +1,119 @@
+@import '../../styles/variables.scss';
+
+.product-details{
+    padding-top: 50px;
+    gap: 20px;
+    display: flex;
+    margin-bottom: 100px;
+
+    @media (max-width: 1192px) {
+        flex-direction: column;
+        align-items: center;
+        .main-slider-image{
+            min-width: auto !important;
+        height:auto !important;
+        }
+        .slider{
+            flex-direction: column;
+            align-items: center;
+        }
+        .product-slider-image .arrowHolder{
+            top: 50%;
+        }
+    }
+}
+
+
+
+.right-side{
+    max-width: 500px;
+    h1{
+        font-family: "Roboto";  
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 25px;
+        margin-bottom: 15px;
+    }
+    .price{
+        font-weight: 600;
+        font-size: 30px;
+        color: #d34546;
+    }
+    button{
+        cursor: pointer;
+        margin-top: 20px;
+        text-decoration: none;
+        background: $btn-color;
+        color: white;
+        padding: 12px 26px;
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        border: none;
+        margin-bottom: 20px;
+    }
+    .old-price{
+        margin-top: 10px;
+        font-weight: 400;
+    font-style: normal;
+    font-size: 19px;
+    line-height: 17px;
+        text-decoration: line-through;
+    }
+}
+
+.accordion{
+    max-width: 500px;
+
+    .accordion-item{
+        margin-bottom: 5px;
+    }
+
+    .accordion-title{
+        display: flex; 
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        h3{
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+    .accordion-content{
+        margin-top: 10px;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0, 1,0,1);
+    }
+
+    .accordion-content.show{
+        height: auto;
+        max-height: 9999px;
+        transition: all 0.5s cubic-bezier(1, 0,1,0);
+    }
+}
+.other-products-title{
+    font-family: "Roboto";
+}
+.other-products{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+
+    @media(max-width: 900px){
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.slider-main-images{
+    overflow: hidden;
+    height: 640px;
+    display: flex
+}
+
+.dropdown{
+    margin-top: 5px;
+}

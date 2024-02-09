@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import "./productCard.scss"
 import { Bounce, toast } from 'react-toastify';
+import {Link } from "react-router-dom"
+
 
 type Props = {
     id:number;
@@ -57,12 +59,14 @@ export const ProductCard = (props : Props) => {
         <div className="like">
         <img onClick={addToFavorite} height={32} width={32} src={ isFavorited  ? "images/heart-like.svg" : "images/heart-unlike.svg"} alt="Like" />
         </div>
+        <Link to={`/${props.id}`}>
         <img src={props.img} alt="Product iamge" />
         <h3>{props.name}</h3>
         <div className='bottom-card'>
             <p>{props.category}</p>
             <p>${props.price}</p>
         </div>
+        </Link>
     </div>
   )
 }

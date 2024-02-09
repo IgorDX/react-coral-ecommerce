@@ -1,9 +1,23 @@
-.shop-wrapper{
-    padding: 100px;
-}
 
 .product-cards{
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+
+
+}
+.products{
+    padding-top: 50px;
+}
+
+.products h1{
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 55px;
+    text-transform: capitalize;
+    color: #000000;
+    padding-bottom: 32px;
 }

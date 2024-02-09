@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .home-holder{
     display: flex;
     align-items: center;
@@ -63,7 +65,7 @@ padding-bottom: 66px;
 
 .home-btn{
     text-decoration: none;
-    background: rgb(30, 40, 50);
+    background: $btn-color;
     color: white;
     padding: 12px 26px;
     width: 113px;
@@ -90,12 +92,17 @@ padding-bottom: 66px;
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 90px;
+
+    @media(max-width:480px){
+        justify-content: center;
+    }
 }
 
 .explore-grid{
     margin-bottom: 150px;
     display: grid;
     gap: 20px;
+    align-items: center;
     grid-template-columns: 2fr 1fr 1fr;
 
     @media(max-width:1360px){

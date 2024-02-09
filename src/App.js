@@ -7,6 +7,7 @@ import "./styles/global.scss"
 import React from 'react';
 import { Home } from './pages/home/Home.tsx';
 import { Shop } from './pages/shop/Shop.tsx';
+import { ProductDetails } from './components/productDetails/ProductDetails.tsx';
 
 function App() {
 
@@ -30,6 +31,10 @@ function App() {
       {
         path: "/shop",
         element: <Shop></Shop>
+      },
+      {
+        path: "/:id",
+        element: <ProductDetails></ProductDetails>
       }
     ]}
   ])
