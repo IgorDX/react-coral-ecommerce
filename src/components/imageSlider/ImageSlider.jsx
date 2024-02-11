@@ -6,6 +6,11 @@ const MAX_IMAGE_WIDTH = 600;
 export const ImageSlider = ({ slides }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [width, setWidth] = useState(MAX_IMAGE_WIDTH);
+    const [startTouchX, setStartTouchX] = useState(0);
+    const [isTouching, setIsTouching] = useState(false);
+
+const [startX, setStartX] = useState(0);
+const [isDown, setIsDown] = useState(false)
     
     const sliderContainerRef = useRef(null);
 
@@ -31,8 +36,7 @@ export const ImageSlider = ({ slides }) => {
         height: 'auto'
     });
     
-    const [startX, setStartX] = useState(0);
-    const [isDown, setIsDown] = useState(false)
+
     const handleMouseDown = (e) => {
         e.preventDefault();
         setIsDown(true);
@@ -70,17 +74,38 @@ export const ImageSlider = ({ slides }) => {
         const x = e.pageX - sliderContainerRef.current.offsetLeft;
         const walk = x - startX;
         const direction = walk > 0 ? 1 : -1;
-        
+        setIsDown(false);
         if (direction === -1) {
             handleSlideRight();
-            setIsDown(false);
         } else if (direction === 1) {
             handleSlideLeft();
-            setIsDown(false);
+
         }
     };
     
+    const handleTouchStart = (e) => {
+        setIsTouching(true);
+        setStartTouchX(e.touches[0].clientX);
+
+    };
     
+    const handleTouchMove = (e) => {
+        if(!isTouching) return
+        const currentX = e.touches[0].clientX;
+
+        const diff = currentX - startTouchX;
+        setIsTouching(false);
+        
+        if (diff > 0) {
+            handleSlideLeft();
+        } else if (diff < 0) {
+            handleSlideRight();
+        }
+    };
+    
+    const handleTouchEnd = () => {
+        setIsTouching(false);
+    };
     return (
         <div className="slider">
             <div className='small-slider'>  
@@ -90,12 +115,17 @@ export const ImageSlider = ({ slides }) => {
                     </div>  
                 ))}
             </div>
-            <div className='slider-container'
-                ref={sliderContainerRef}
-                onMouseDown={handleMouseDown}
-                onMouseMove={handleMouseMove}
-                onMouseUp={handleMouseUp}
-                onMouseLeave={handleMouseLeave} >
+            <div
+    className='slider-container'
+    ref={sliderContainerRef}
+    onMouseDown={handleMouseDown}
+    onMouseMove={handleMouseMove}
+    onMouseUp={handleMouseUp}
+    onMouseLeave={handleMouseLeave}
+    onTouchStart={handleTouchStart}
+    onTouchMove={handleTouchMove}
+    onTouchEnd={handleTouchEnd}
+>
                 <div className='slider-line' style={getSlidesContainerStylesWithWidth()}>
                     {slides.map((el, slideIndex) => (
                         <div key={slideIndex} className='slide-item'>

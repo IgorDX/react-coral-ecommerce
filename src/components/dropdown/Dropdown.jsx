@@ -10,13 +10,16 @@ export const Dropdown = ({items, setSelected, selected}) => {
     <div className="dropdown">
         <div className="dropdown-button" onClick={()=> setIsActive(!isActive)}>{selected}
         <img className='drop-down-image' src="images/caretDown.svg" alt="Open" /></div>
-        <div className={isActive ? "dropdown-content active": "dropdown-content"}>
+        {isActive && (
+            <div className="dropdown-content">
             {items.map(el=> (
                             <div className="dropdown-item" onClick={()=>handleSelect(el)}>
                                 {el.size}
                             </div>
             ))}
         </div>
+        )}
+        
     </div>
   )
 }

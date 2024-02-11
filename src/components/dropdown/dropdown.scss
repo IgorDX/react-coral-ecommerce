@@ -17,9 +17,8 @@
     }
 
     .dropdown-content{
-        max-height: 0px;
-        overflow: hidden;
-
+        padding: 10px;
+        box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06); 
         background: #fff;
 
         font-weight: 500;
@@ -37,8 +36,3 @@
     }
 }
 
-.dropdown-content.active {
-    padding: 10px;
-            max-height: 9999px;
-            box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06); 
-        }

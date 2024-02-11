@@ -11,7 +11,7 @@ export const ProductDetails = () => {
     const favoritedString = localStorage.getItem("favorited");
     const favorited = favoritedString ? JSON.parse(favoritedString) : [];
     const { id } = useParams();
-    const [selectedSize, setSelectedSize] = useState("Chose One");
+    const [selectedSize, setSelectedSize] = useState("Chose Size");
     React.useEffect(()=>{
 
     }, [id])
