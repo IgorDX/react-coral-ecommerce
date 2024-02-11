@@ -12,8 +12,8 @@ export const Dropdown = ({items, setSelected, selected}) => {
         <img className='drop-down-image' src="images/caretDown.svg" alt="Open" /></div>
         {isActive && (
             <div className="dropdown-content">
-            {items.map(el=> (
-                            <div className="dropdown-item" onClick={()=>handleSelect(el)}>
+            {items.map((el, index)=> (
+                            <div key={index} className="dropdown-item" onClick={()=>handleSelect(el)}>
                                 {el.size}
                             </div>
             ))}

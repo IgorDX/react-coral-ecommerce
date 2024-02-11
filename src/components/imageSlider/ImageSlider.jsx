@@ -8,10 +8,8 @@ export const ImageSlider = ({ slides }) => {
     const [width, setWidth] = useState(MAX_IMAGE_WIDTH);
     const [startTouchX, setStartTouchX] = useState(0);
     const [isTouching, setIsTouching] = useState(false);
-
-const [startX, setStartX] = useState(0);
-const [isDown, setIsDown] = useState(false)
-    
+    const [startX, setStartX] = useState(0);
+    const [isDown, setIsDown] = useState(false)
     const sliderContainerRef = useRef(null);
 
     const init = () => {
@@ -95,7 +93,7 @@ const [isDown, setIsDown] = useState(false)
 
         const diff = currentX - startTouchX;
         setIsTouching(false);
-        
+
         if (diff > 0) {
             handleSlideLeft();
         } else if (diff < 0) {
