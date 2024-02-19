@@ -13,8 +13,8 @@ export const ImageSlider = ({ slides }) => {
     const sliderContainerRef = useRef(null);
 
     const init = () => {
-            const sliderWidth = window.innerWidth-50;
-            setWidth(sliderWidth);
+        const sliderWidth = document.documentElement.clientWidth - 50;
+        setWidth(sliderWidth);
     };
 
     useEffect(() => {
@@ -25,7 +25,7 @@ export const ImageSlider = ({ slides }) => {
         };
     }, []);
 
-    const getSlidesContainerStylesWithWidth = ()=>({
+    const sliderLineStyle = ()=>({
         width:  width < MAX_IMAGE_WIDTH ? width : MAX_IMAGE_WIDTH + 'px',
         transform: `translateX(${-(currentIndex * (width < MAX_IMAGE_WIDTH ? width : MAX_IMAGE_WIDTH))}px)`
     })
@@ -33,7 +33,6 @@ export const ImageSlider = ({ slides }) => {
         width: width < MAX_IMAGE_WIDTH ? width + 'px' : MAX_IMAGE_WIDTH + 'px',
         height: 'auto'
     });
-    
 
     const handleMouseDown = (e) => {
         e.preventDefault();
@@ -124,12 +123,12 @@ export const ImageSlider = ({ slides }) => {
     onTouchMove={handleTouchMove}
     onTouchEnd={handleTouchEnd}
 >
-                <div className='slider-line' style={getSlidesContainerStylesWithWidth()}>
+                <div className='slider-line' style={sliderLineStyle()}>
                     {slides.map((el, slideIndex) => (
                         <div key={slideIndex} className='slide-item'>
-                            <img style={imagesStyle()} src={el.image} alt="" />
-                            <button className='arrowHolder left-arrow' onClick={handleSlideLeft}><img src="images/leftArrow.svg" alt="" /></button>
-                            <button className='arrowHolder right-arrow' onClick={handleSlideRight}><img src="images/rightArrow.svg" alt="" /></button>
+                            <img style={imagesStyle()} src={el.image} alt="Product" />
+                            <button className='arrowHolder left-arrow' onClick={handleSlideLeft}><img src="images/leftArrow.svg" alt="Left arrow" /></button>
+                            <button className='arrowHolder right-arrow' onClick={handleSlideRight}><img src="images/rightArrow.svg" alt="Right arrow" /></button>
                         </div>
                     ))}
                 </div>

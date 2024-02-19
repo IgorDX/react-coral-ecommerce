@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./navbar.scss"
 import {Link} from "react-router-dom"
+import { useShoppingCart } from '../../context/ShoppingCartContext'
 export const Navbar = () => {
+    const storedCartItems = localStorage.getItem("cartItems");
+
+    const {cartQuantity} = useShoppingCart()
+
   return (
     <header className='header container'>
         <div className="header-content">
@@ -15,15 +20,22 @@ export const Navbar = () => {
             </Link>
             <img src="images/rhombus.svg" alt="Rhombus" />
         </div>
-        <div className='user'>
-        <div className='account'>
-                <img src="images/person.svg" alt="Person"/> 
-                <span>Account</span>
+        <div className='nav-options'>
+        <div className='nav-cart'>
+            <Link to="/cart" className='shopping-cart-link'>
+                <img src="images/cart.svg" alt="Person"/> 
+                {cartQuantity > 0 &&                 <div className='cart-items-holder'>
+                <span className='cart-items-number'>{ cartQuantity}</span>
+                </div>}
+
+                <span>Cart</span>
+                </Link>
+
             </div>
-            <div className='shoping'>
-            <Link to="/shop" className='shoping-link'>
+            <div className='nav-shopping'>
+            <Link to="/shop" className='shopping-cart-link'>
                 <img src="images/bag.svg" alt="Shoping"/>
-                Shoping</Link>
+                Shopping</Link>
             </div>
         </div>
         </div>

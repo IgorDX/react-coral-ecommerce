@@ -1,12 +1,18 @@
 
-.product-cards{
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
+.product-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    justify-content: center;
 
-
-}
+    @media(max-width:800px){
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media(max-width:500px){
+        grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
 .products{
     padding-top: 50px;
 }

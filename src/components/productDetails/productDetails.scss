@@ -1,7 +1,9 @@
 @import '../../styles/variables.scss';
 
+.breadcrumbs{
+    margin-top: 50px;
+}
 .product-details{
-    padding-top: 50px;
     gap: 20px;
     display: flex;
     margin-bottom: 100px;

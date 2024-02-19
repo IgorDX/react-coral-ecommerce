@@ -1,26 +1,32 @@
 import './App.css';
-import { Navbar } from './components/navbar/Navbar.tsx';
+import { Navbar } from './components/navbar/Navbar.jsx';
 import { Footer } from './components/footer/Footer.tsx';
-import {createBrowserRouter, RouterProvider, Route, Link, Outlet} from "react-router-dom"
+import {createBrowserRouter, RouterProvider, Route, Link, Outlet, createHashRouter} from "react-router-dom"
 import "./styles/global.scss"
 
 import React from 'react';
 import { Home } from './pages/home/Home.tsx';
 import { Shop } from './pages/shop/Shop.tsx';
-import { ProductDetails } from './components/productDetails/ProductDetails.tsx';
+import { ProductDetails } from './components/productDetails/ProductDetails.jsx';
+import { Cart } from './pages/cart/Cart.jsx';
+import { ShoppingCartProvider } from './context/ShoppingCartContext.js';
 
 function App() {
 
   const Layout = ()=>{
     return (
+      <ShoppingCartProvider>
       <div className='main'>
        <Navbar></Navbar>
+       <div className="outlet-container">
        <Outlet></Outlet>
+       </div>
         <Footer></Footer>
       </div>  
+      </ShoppingCartProvider>
     )
   } 
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: "/",
       element: <Layout></Layout>,
@@ -35,6 +41,10 @@ function App() {
       {
         path: "/:id",
         element: <ProductDetails></ProductDetails>
+      },
+      {
+        path: "/cart",
+        element : <Cart></Cart>
       }
     ]}
   ])

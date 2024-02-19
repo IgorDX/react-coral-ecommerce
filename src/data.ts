@@ -1,30 +1,46 @@
 export const productData = [
     {
       id: 1,
-      name: 'Продукт 1',
-      price: 19.99,
+      name: 'Кросівки Jordan MAX AURA 5 160627',
+      price: 100,
       category: 'Категория A',
-      img : 'images/productCard/productImg1.png'
+      images :[
+        "images/productCard/sneakers1.jpg",
+       "images/productCard/sneakers2.jpg",
+        "images/productCard/sneakers3.jpg",
+      ]
     },
     {
       id: 2,
-      name: 'Продукт 2',
-      price: 29.99,
+      name: 'Черевики Adidas EASTRAIL 2 MID R.RDY 160368',
+      price: 200,
       category: 'Категория B',
-      img : 'images/productCard/productImg2.png'
+      images :[
+        "images/productCard/sneakers4.jpg",
+       "images/productCard/sneakers5.jpg",
+        "images/productCard/sneakers6.jpg",
+      ]
     },
     {
       id: 3,
-      name: 'Продукт 3',
-      price: 39.99,
+      name: 'Кросівки Nike AIR MAX LTD 3 159737',
+      price: 300,
       category: 'Категория A',
-      img : 'images/productCard/productImg3.png'
+      images :[
+        "images/productCard/sneakers7.jpg",
+       "images/productCard/sneakers8.jpg",
+        "images/productCard/sneakers9.jpg",
+      ]
     },
     {
       id: 4,
-      name: 'Продукт 4',
-      price: 49.99,
+      name: 'Кеди Nike Air Force 1 Mid 07 140965',
+      price: 400,
       category: 'Категория B',
-      img : 'images/productCard/productImg4.png'
+      images :[
+        "images/productCard/sneakers10.jpg",
+        "images/productCard/sneakers11.jpg",
+         "images/productCard/sneakers12.jpg",
+      ]
     },
   ];
