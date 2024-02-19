@@ -1,10 +1,9 @@
 import './App.css';
 import { Navbar } from './components/navbar/Navbar.jsx';
 import { Footer } from './components/footer/Footer.tsx';
-import {createBrowserRouter, RouterProvider, Route, Link, Outlet, createHashRouter} from "react-router-dom"
+import { createHashRouter} from "react-router-dom"
 import "./styles/global.scss"
 
-import React from 'react';
 import { Home } from './pages/home/Home.tsx';
 import { Shop } from './pages/shop/Shop.tsx';
 import { ProductDetails } from './components/productDetails/ProductDetails.jsx';

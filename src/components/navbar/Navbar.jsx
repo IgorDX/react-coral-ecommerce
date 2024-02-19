@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import "./navbar.scss"
 import {Link} from "react-router-dom"
 import { useShoppingCart } from '../../context/ShoppingCartContext'

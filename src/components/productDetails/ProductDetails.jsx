@@ -6,7 +6,8 @@ import { ProductCard } from '../productCard/ProductCard.tsx';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import { ImageSlider } from '../imageSlider/ImageSlider.jsx';
 import { Dropdown } from '../dropdown/Dropdown.jsx';
-import { Breadcrumbs, Typography } from '@mui/material';
+import  {Breadcrumbs} from '@mui/material';
+import { Typography } from '@mui/material';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useShoppingCart } from '../../context/ShoppingCartContext.js';
 

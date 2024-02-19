@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import "./shop.scss"
 import { ProductCard } from '../../components/productCard/ProductCard.tsx'
 import { productData } from '../../data.ts'
-import { Bounce, ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 export const Shop = () => {
 
