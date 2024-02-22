@@ -25,7 +25,7 @@ function App() {
       </ShoppingCartProvider>
     )
   } 
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: "/",
       element: <Layout></Layout>,

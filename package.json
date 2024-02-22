@@ -2,10 +2,11 @@
   "name": "coral-website",
   "version": "0.1.0",
   "private": true,
-
+  "homepage": "https://github.com/IGODX/coral-website",
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@material-ui/icons": "^5.0.0-beta.5",
     "@mui/icons-material": "^5.15.10",
     "@mui/material": "^5.15.9",
     "@testing-library/jest-dom": "^5.17.0",
@@ -27,7 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [

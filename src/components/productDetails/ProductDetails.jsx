@@ -6,20 +6,9 @@ import { ProductCard } from '../productCard/ProductCard.tsx';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import { ImageSlider } from '../imageSlider/ImageSlider.jsx';
 import { Dropdown } from '../dropdown/Dropdown.jsx';
-import  {Breadcrumbs} from '@mui/material';
-import { Typography } from '@mui/material';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useShoppingCart } from '../../context/ShoppingCartContext.js';
 
 export const ProductDetails = () => {
-    const breadcrumbs = [
-        <Link to="/shop" key="1" color="inherit" >
-          Shop
-        </Link>,
-        <Typography key="3" color="text.primary">
-          Product
-        </Typography>,
-      ];
     
     const favoritedString = localStorage.getItem("favorited");
     const favorited = favoritedString ? JSON.parse(favoritedString) : [];
@@ -84,15 +73,7 @@ export const ProductDetails = () => {
     }
   return (
     <div className='container'>
-              <div className="breadcrumbs">
-                <Breadcrumbs
-  separator={<NavigateNextIcon fontSize="small" />}
-  aria-label="breadcrumb"
->
-  {breadcrumbs}
-</Breadcrumbs>
-</div>
-        <div className="product-details">
+    <div className="product-details">
         <ImageSlider slides={product.images || []}></ImageSlider>
             <div className="right-side">
             <h1>{product.name}</h1>
