@@ -1,0 +1,42 @@
+
+.product-card{
+    position: relative;
+
+    margin-bottom: 50px;
+    h3{
+        padding: 18px 0px 16px 0;
+        height: 80px;
+
+        @media (max-width: 888px) {
+            height: 100px;
+        }
+    }
+
+    img{
+        max-width: 100%;
+    }
+}
+.bottom-card{
+
+    display: flex;
+    justify-content: space-between;
+
+    @media(max-width: 581px){
+        margin-top: 20px;;
+    }
+}   
+.bottom-card p{
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+}
+
+.like{
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+}
+a{
+    text-decoration: none;
+    color: black;
+}

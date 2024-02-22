@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/IGODX/coral-website/static/css/main.24dc8858.css",
+    "main.js": "/IGODX/coral-website/static/js/main.beb5c1de.js",
+    "static/media/flower-pattern.png": "/IGODX/coral-website/static/media/flower-pattern.1a25ab08fb0fdac00cbb.png",
+    "index.html": "/IGODX/coral-website/index.html",
+    "main.24dc8858.css.map": "/IGODX/coral-website/static/css/main.24dc8858.css.map",
+    "main.beb5c1de.js.map": "/IGODX/coral-website/static/js/main.beb5c1de.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.24dc8858.css",
+    "static/js/main.beb5c1de.js"
+  ]
+}
