@@ -18,6 +18,10 @@ export const ImageSlider = ({ slides }) => {
     };
 
     useEffect(() => {
+        setCurrentIndex(0); 
+    }, [slides]);
+
+    useEffect(() => {
         init();
         window.addEventListener('resize', init);
         return () => {
@@ -108,7 +112,7 @@ export const ImageSlider = ({ slides }) => {
             <div className='small-slider'>  
                 {slides.map((el, index) => (
                     <div key={index} className='slider-item' onClick={() => setCurrentIndex(index)}>
-                        <img src={el.image} alt="image" />
+                        <img src={el} alt="image" />
                     </div>  
                 ))}
             </div>
@@ -126,7 +130,7 @@ export const ImageSlider = ({ slides }) => {
                 <div className='slider-line' style={sliderLineStyle()}>
                     {slides.map((el, slideIndex) => (
                         <div key={slideIndex} className='slide-item'>
-                            <img style={imagesStyle()} src={el.image} alt="Product" />
+                            <img style={imagesStyle()} src={el} alt="Product" />
                             <button className='arrowHolder left-arrow' onClick={handleSlideLeft}><img src="images/leftArrow.svg" alt="Left arrow" /></button>
                             <button className='arrowHolder right-arrow' onClick={handleSlideRight}><img src="images/rightArrow.svg" alt="Right arrow" /></button>
                         </div>

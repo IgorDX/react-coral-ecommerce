@@ -1,9 +1,9 @@
 import './App.css';
 import { Navbar } from './components/navbar/Navbar.jsx';
 import { Footer } from './components/footer/Footer.tsx';
-import { createHashRouter} from "react-router-dom"
+import { createBrowserRouter, createHashRouter} from "react-router-dom"
 import "./styles/global.scss"
-
+import { Outlet, RouterProvider } from 'react-router-dom';
 import { Home } from './pages/home/Home.tsx';
 import { Shop } from './pages/shop/Shop.tsx';
 import { ProductDetails } from './components/productDetails/ProductDetails.jsx';
@@ -25,7 +25,7 @@ function App() {
       </ShoppingCartProvider>
     )
   } 
-  const router = createHashRouter([
+  const router = createBrowserRouter([
     {
       path: "/",
       element: <Layout></Layout>,

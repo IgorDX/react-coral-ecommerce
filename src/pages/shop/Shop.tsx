@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import "./shop.scss"
 import { ProductCard } from '../../components/productCard/ProductCard.tsx'
 import { productData } from '../../data.ts'

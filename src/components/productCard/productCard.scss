@@ -5,6 +5,11 @@
     margin-bottom: 50px;
     h3{
         padding: 18px 0px 16px 0;
+        height: 80px;
+
+        @media (max-width: 888px) {
+            height: 100px;
+        }
     }
 
     img{
@@ -15,6 +20,10 @@
 
     display: flex;
     justify-content: space-between;
+
+    @media(max-width: 581px){
+        margin-top: 20px;;
+    }
 }   
 .bottom-card p{
     font-family: "Roboto";

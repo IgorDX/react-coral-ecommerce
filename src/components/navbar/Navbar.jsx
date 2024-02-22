@@ -2,7 +2,6 @@ import "./navbar.scss"
 import {Link} from "react-router-dom"
 import { useShoppingCart } from '../../context/ShoppingCartContext'
 export const Navbar = () => {
-    const storedCartItems = localStorage.getItem("cartItems");
 
     const {cartQuantity} = useShoppingCart()
 

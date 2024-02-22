@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import "./productDetails.scss"
 import { productData } from '../../data.ts'
@@ -25,10 +25,15 @@ export const ProductDetails = () => {
     const favorited = favoritedString ? JSON.parse(favoritedString) : [];
     const {increaseCartQuantity} = useShoppingCart()
     const { id } = useParams();
+    const [product, setProduct] = useState({});
     const [selectedSize, setSelectedSize] = useState("Chose Size");
-    React.useEffect(()=>{
-        
-    }, [id])
+    useEffect(() => {
+        const foundProduct = productData.find(product => product.id === Number(id));
+        if (foundProduct) {
+            setProduct(foundProduct);
+        }
+        setSelectedSize("Chose Size")
+    }, [id]);
 
     const [accordionSelected, setAccordionSelected] = useState(null);
 
@@ -53,9 +58,9 @@ export const ProductDetails = () => {
                 });
                 return;
         }
-        increaseCartQuantity()
-
-        const itemToCart = {selectedSize, id, quantity : 1, price: 100}
+        const itemToCart = {selectedSize, id, quantity : 1, name: product.name, image: product.images[0], price : product.price}
+        console.log(itemToCart)
+        increaseCartQuantity(itemToCart)
         let storedCartItems = localStorage.getItem("cartItems");
 
         const previousCartItems = storedCartItems ? JSON.parse(storedCartItems) : [];
@@ -63,6 +68,8 @@ export const ProductDetails = () => {
         previousCartItems.push(itemToCart);
         
         localStorage.setItem("cartItems", JSON.stringify(previousCartItems));
+
+
         toast.success('Item added to cart!', {
             position: "top-center",
             autoClose: 1000,
@@ -86,11 +93,11 @@ export const ProductDetails = () => {
 </Breadcrumbs>
 </div>
         <div className="product-details">
-             <ImageSlider slides={images}></ImageSlider>
+        <ImageSlider slides={product.images || []}></ImageSlider>
             <div className="right-side">
-            <h1>Кросівки Jordan MAX AURA 5 160627</h1>
-            <p className='old-price'>3 319</p>
-            <p className='price'>4 799 грн</p>
+            <h1>{product.name}</h1>
+            <p className='old-price'>{product.oldPrice} грн</p>
+            <p className='price'>{product.price} грн</p>
             <Dropdown items={sizes} setSelected={setSelectedSize} selected={selectedSize}></Dropdown>
             <button onClick={addToCart}>Add to cart</button>
             <div className="description">
@@ -144,15 +151,4 @@ const sizes =[
     {
         size : "41"
     }
-]
-const images = [
-    {
-       image : "https://megasport.ua/api/s3/images/megasport-dev/products/3555570144/655344f09cbbb-6389105.jpeg"
-    },
-    {
-        image: "https://megasport.ua/api/s3/images/megasport-dev/products/3555570144/655344f0451b7-6389105.jpeg"
-    },
-    {
-        image: "https://megasport.ua/api/s3/images/megasport-dev/products/3555570144/655344f140b9a-6389105.jpeg"
-    },
 ]

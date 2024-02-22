@@ -18,32 +18,20 @@ export function ShoppingCartProvider({ children }) {
     0
   )
 
-  function increaseCartQuantity() {
+  function increaseCartQuantity(cartItem) {
     setCartItems(currentItems => {
-      return [...currentItems, { quantity: 1 }];
+      return [...currentItems, cartItem];
     });
-  }
-  function decreaseCartQuantity() {
-    setCartItems(currentItems => {
-      const updatedItems = currentItems.slice(0, -1);
-      return updatedItems;
-    });
-  }
-    function setCartQuantity(quantity){
-      const initialCartItems = Array.from({ length: quantity }, (_, index) => ({
-        quantity: 1,
-      }));
-      setCartItems(initialCartItems)
-    }
+  } 
     function clearCart(){
       setCartItems([]);
     }
   const contextValue = {
     increaseCartQuantity,
     cartQuantity,
-    decreaseCartQuantity,
-    setCartQuantity,
-    clearCart
+    clearCart,
+    setCartItems,
+    cartItems
   };
 
   return (

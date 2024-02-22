@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import "./productCard.scss"
 import { Bounce, toast } from 'react-toastify';
 import {Link } from "react-router-dom"
