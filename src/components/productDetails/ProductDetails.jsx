@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import "./productDetails.scss"
 import { productData } from '../../data.ts'
-import { ProductCard } from '../productCard/ProductCard.tsx';
+import { ProductCard } from '../productCard/ProductCard.jsx';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import { ImageSlider } from '../imageSlider/ImageSlider.jsx';
 import { Dropdown } from '../dropdown/Dropdown.jsx';
@@ -48,7 +48,6 @@ export const ProductDetails = () => {
                 return;
         }
         const itemToCart = {selectedSize, id, quantity : 1, name: product.name, image: product.images[0], price : product.price}
-        console.log(itemToCart)
         increaseCartQuantity(itemToCart)
         let storedCartItems = localStorage.getItem("cartItems");
 
@@ -118,7 +117,7 @@ export const ProductDetails = () => {
         </div>
         <h2 className='other-products-title'>You may like:</h2>
         <div className="other-products">
-            {productData.filter(el=> el.id !== id).map(el=>(
+            {productData.filter(el=> el.id !== Number(id)).map(el=>(
             <ProductCard key={el.id} isFavorited={favorited.includes(el.id)} {...el}></ProductCard>))}
         </div>
         <ToastContainer />

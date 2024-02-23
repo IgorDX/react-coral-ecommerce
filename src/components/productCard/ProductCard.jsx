@@ -1,20 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./productCard.scss"
 import { Bounce, toast } from 'react-toastify';
-import {Link } from "react-router-dom"
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 
-type Props = {
-    id:number;
-    name:string;
-    price: number;
-    category: string;
-    images: string[];
-    isFavorited : boolean;
-}
-export const ProductCard = (props : Props) => {
+export const ProductCard = (props) => {
   const [isFavorited, setIsFavorited] = useState(props.isFavorited);
-
+  const navigate = useNavigate();
+  useEffect(() => {
+    const scrollToTop = () => {
+      const scrollStep = window.scrollY / 50;
+      const scrollInterval = setInterval(() => {
+        if (window.scrollY !== 0) {
+          window.scrollTo(0, window.scrollY - scrollStep);
+        } else {
+          clearInterval(scrollInterval); 
+        }
+      }, 1); 
+    };
+  
+    scrollToTop(); 
+  
+    return () => {
+    };
+  }, []);
+  
 
   const addToFavorite = () => {
     setIsFavorited((prevIsFavorited) => {

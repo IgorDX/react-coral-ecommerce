@@ -1,6 +1,6 @@
 import React from 'react'
 import "./shop.scss"
-import { ProductCard } from '../../components/productCard/ProductCard.tsx'
+import { ProductCard } from '../../components/productCard/ProductCard.jsx'
 import { productData } from '../../data.ts'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
