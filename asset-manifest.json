@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/coral-website/static/css/main.c66441a4.css",
-    "main.js": "/coral-website/static/js/main.d588a90b.js",
+    "main.js": "/coral-website/static/js/main.a9eba9ed.js",
     "static/media/flower-pattern.png": "/coral-website/static/media/flower-pattern.1a25ab08fb0fdac00cbb.png",
     "index.html": "/coral-website/index.html",
     "main.c66441a4.css.map": "/coral-website/static/css/main.c66441a4.css.map",
-    "main.d588a90b.js.map": "/coral-website/static/js/main.d588a90b.js.map"
+    "main.a9eba9ed.js.map": "/coral-website/static/js/main.a9eba9ed.js.map"
   },
   "entrypoints": [
     "static/css/main.c66441a4.css",
-    "static/js/main.d588a90b.js"
+    "static/js/main.a9eba9ed.js"
   ]
 }
