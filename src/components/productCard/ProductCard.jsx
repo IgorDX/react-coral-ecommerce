@@ -52,7 +52,7 @@ export const ProductCard = (props) => {
         <img onClick={addToFavorite} height={32} width={32} src={ isFavorited  ? "images/heart-like.svg" : "images/heart-unlike.svg"} alt="Like" />
         </div>
         <Link to={`/${props.id}`} >
-        <img src={props.images[0]} alt="Product iamge" />
+        <img className='product-image' src={props.images[0]} alt="Product iamge" />
         <h3>{props.name}</h3>
         <div className='bottom-card'>
             <p>{props.category}</p>
