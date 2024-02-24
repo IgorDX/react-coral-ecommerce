@@ -33,3 +33,8 @@ body{
         line-height: 34px;
     }
 }
+
+.is-touching{
+    overflow: hidden;
+    touch-action: none;
+}

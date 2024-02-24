@@ -7,13 +7,14 @@ export const ImageSlider = ({ slides }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [width, setWidth] = useState(MAX_IMAGE_WIDTH);
     const [startTouchX, setStartTouchX] = useState(0);
+    const [startTouchY, setStartTouchY] = useState(0);
     const [isTouching, setIsTouching] = useState(false);
     const [startX, setStartX] = useState(0);
     const [isDown, setIsDown] = useState(false)
     const sliderContainerRef = useRef(null);
 
     const init = () => {
-        const sliderWidth = document.documentElement.clientWidth - 50;
+        const sliderWidth = document.documentElement.clientWidth;
         setWidth(sliderWidth);
     };
 
@@ -71,7 +72,6 @@ export const ImageSlider = ({ slides }) => {
     }
     const handleMouseMove = (e) => {
         if (!isDown) return;
-        e.preventDefault();
         const x = e.pageX - sliderContainerRef.current.offsetLeft;
         const walk = x - startX;
         const direction = walk > 0 ? 1 : -1;
@@ -83,28 +83,41 @@ export const ImageSlider = ({ slides }) => {
 
         }
     };
-    
+
     const handleTouchStart = (e) => {
         setIsTouching(true);
         setStartTouchX(e.touches[0].clientX);
+        setStartTouchY(e.touches[0].clientY);
 
     };
     
     const handleTouchMove = (e) => {
-        if(!isTouching) return
+        if (!isTouching) return;
+
         const currentX = e.touches[0].clientX;
-
-        const diff = currentX - startTouchX;
+        const currentY = e.touches[0].clientY;
+    
+        const diffX = currentX - startTouchX;
+        const diffY = currentY - startTouchY;
+    
+        const horizontalSwipeThreshold = 1; 
+    
+        if (Math.abs(diffY) > Math.abs(diffX)) {
+            setIsTouching(false);
+            return;
+        }
+    
         setIsTouching(false);
-
-        if (diff > 0) {
+        document.body.classList.add("is-touching")
+    
+        if (diffX > horizontalSwipeThreshold) {
             handleSlideLeft();
-        } else if (diff < 0) {
+        } else if (diffX < -horizontalSwipeThreshold) {
             handleSlideRight();
         }
     };
-    
     const handleTouchEnd = () => {
+        document.body.classList.remove("is-touching")
         setIsTouching(false);
     };
     return (
@@ -124,8 +137,8 @@ export const ImageSlider = ({ slides }) => {
     onMouseUp={handleMouseUp}
     onMouseLeave={handleMouseLeave}
     onTouchStart={handleTouchStart}
-    onTouchMove={handleTouchMove}
     onTouchEnd={handleTouchEnd}
+    onTouchMove={handleTouchMove}
 >
                 <div className='slider-line' style={sliderLineStyle()}>
                     {slides.map((el, slideIndex) => (

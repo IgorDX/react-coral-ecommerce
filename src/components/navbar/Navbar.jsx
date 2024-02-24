@@ -7,7 +7,7 @@ export const Navbar = () => {
 
   return (
     <header className='header container'>
-        <div className="header-content">
+        <div className="header-content" id="headerContent">
             <div className='loop'>
         <img src="images/loop.svg" alt="Loop" />
         </div>

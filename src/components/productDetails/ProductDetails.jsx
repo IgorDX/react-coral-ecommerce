@@ -72,12 +72,13 @@ export const ProductDetails = () => {
     }
   return (
     <div className='container'>
+        <h3>Product</h3>
     <div className="product-details">
         <ImageSlider slides={product.images || []}></ImageSlider>
             <div className="right-side">
             <h1>{product.name}</h1>
-            <p className='old-price'>{product.oldPrice} грн</p>
-            <p className='price'>{product.price} грн</p>
+            <p className='old-price'>{product.oldPrice} $</p>
+            <p className='price'>{product.price} $</p>
             <Dropdown items={sizes} setSelected={setSelectedSize} selected={selectedSize}></Dropdown>
             <button onClick={addToCart}>Add to cart</button>
             <div className="description">

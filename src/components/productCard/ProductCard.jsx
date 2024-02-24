@@ -6,8 +6,15 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 export const ProductCard = (props) => {
   const [isFavorited, setIsFavorited] = useState(props.isFavorited);
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  }, [navigate]);
 
+  
   const addToFavorite = () => {
     setIsFavorited((prevIsFavorited) => {
       const favoritedString = localStorage.getItem('favorited');
