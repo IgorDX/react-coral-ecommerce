@@ -23,6 +23,7 @@ export const ImageSlider = ({ slides }) => {
     }, [slides]);
 
     useEffect(() => {
+
         init();
         window.addEventListener('resize', init);
         return () => {
@@ -83,8 +84,8 @@ export const ImageSlider = ({ slides }) => {
 
         }
     };
-
     const handleTouchStart = (e) => {
+
         setIsTouching(true);
         setStartTouchX(e.touches[0].clientX);
         setStartTouchY(e.touches[0].clientY);
@@ -108,18 +109,17 @@ export const ImageSlider = ({ slides }) => {
         }
     
         setIsTouching(false);
-        document.body.classList.add("is-touching")
-    
+
+
         if (diffX > horizontalSwipeThreshold) {
             handleSlideLeft();
         } else if (diffX < -horizontalSwipeThreshold) {
             handleSlideRight();
         }
     };
-    const handleTouchEnd = () => {
+    const handleTouchEnd = (e)=>{
         document.body.classList.remove("is-touching")
-        setIsTouching(false);
-    };
+    }
     return (
         <div className="slider">
             <div className='small-slider'>  
@@ -137,13 +137,12 @@ export const ImageSlider = ({ slides }) => {
     onMouseUp={handleMouseUp}
     onMouseLeave={handleMouseLeave}
     onTouchStart={handleTouchStart}
-    onTouchEnd={handleTouchEnd}
     onTouchMove={handleTouchMove}
->
+>.
                 <div className='slider-line' style={sliderLineStyle()}>
                     {slides.map((el, slideIndex) => (
                         <div key={slideIndex} className='slide-item'>
-                            <img style={imagesStyle()} src={el} alt="Product" />
+                            <img className='slider-image' style={imagesStyle()} src={el} alt="Product" />
                             <button className='arrowHolder left-arrow' onClick={handleSlideLeft}><img src="images/leftArrow.svg" alt="Left arrow" /></button>
                             <button className='arrowHolder right-arrow' onClick={handleSlideRight}><img src="images/rightArrow.svg" alt="Right arrow" /></button>
                         </div>

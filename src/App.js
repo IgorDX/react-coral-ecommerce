@@ -9,6 +9,7 @@ import { Shop } from './pages/shop/Shop.tsx';
 import { ProductDetails } from './components/productDetails/ProductDetails.jsx';
 import { Cart } from './pages/cart/Cart.jsx';
 import { ShoppingCartProvider } from './context/ShoppingCartContext.js';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const Layout = () => {
@@ -18,6 +19,7 @@ function App() {
           <Navbar />
           <div className="outlet-container">
             <Outlet />
+            <ToastContainer />
           </div>
           <Footer />
         </div>  

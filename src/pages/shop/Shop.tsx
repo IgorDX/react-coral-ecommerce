@@ -17,7 +17,6 @@ export const Shop = () => {
                 {productData.map(el=>(
             <ProductCard key={el.id} isFavorited={favorited.includes(el.id)} {...el}></ProductCard>))}
             </div>
-            <ToastContainer />
         </div>
         </div>
     </div>

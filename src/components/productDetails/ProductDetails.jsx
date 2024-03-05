@@ -121,7 +121,7 @@ export const ProductDetails = () => {
             {productData.filter(el=> el.id !== Number(id)).map(el=>(
             <ProductCard key={el.id} isFavorited={favorited.includes(el.id)} {...el}></ProductCard>))}
         </div>
-        <ToastContainer />
+
     </div>
   )
 }
