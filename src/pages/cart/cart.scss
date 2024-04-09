@@ -36,12 +36,53 @@
     background: rgba(0,0,0,0);
     }
 }
-.product-cell {
-    width: 200px; 
-  }
+
 
   .red-cross-holder img{
     cursor: pointer;
   }
 
 
+
+@media(max-width: 716px){
+.MuiTable-root   {
+display: block !important;
+width: 100%;
+}
+table thead{
+    float: left;
+}
+td{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+table tbody{
+    overflow-x: auto;
+}
+table thead,
+table tbody,
+table thead th{
+display: block !important;
+}
+tbody tr{
+    display: table-cell !important;
+}
+table thead{
+    float: left;
+}
+
+.cart .product-cart-image
+{
+height: 57px;
+}
+td{
+    text-overflow: ellipsis !important;
+    height: 57px;
+}
+.css-1yhpg23-MuiTableCell-root{
+    padding: 0px !important;
+}
+}

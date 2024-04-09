@@ -138,7 +138,7 @@ export const ImageSlider = ({ slides }) => {
     onMouseLeave={handleMouseLeave}
     onTouchStart={handleTouchStart}
     onTouchMove={handleTouchMove}
->.
+>
                 <div className='slider-line' style={sliderLineStyle()}>
                     {slides.map((el, slideIndex) => (
                         <div key={slideIndex} className='slide-item'>
