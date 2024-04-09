@@ -3,6 +3,11 @@
     position: relative;
 
     margin-bottom: 50px;
+    @media(max-width: 425px){
+        .product-card{
+            width: 93%;
+        }
+    }
     h3{
         padding: 18px 0px 16px 0;
         height: 80px;

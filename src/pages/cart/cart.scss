@@ -45,44 +45,21 @@
 
 
 @media(max-width: 716px){
-.MuiTable-root   {
-display: block !important;
-width: 100%;
-}
-table thead{
-    float: left;
-}
-td{
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-table tbody{
-    overflow-x: auto;
-}
-table thead,
-table tbody,
-table thead th{
-display: block !important;
-}
-tbody tr{
-    display: table-cell !important;
-}
-table thead{
-    float: left;
-}
-
+    table tr{
+        display: block !important;
+        margin-bottom: 30px !important;
+    }
+    table th, table td{
+        display: block !important;
+        text-align: center !important;
+    }
+    table td{
+        border-right: none !important;
+    }
 .cart .product-cart-image
 {
-height: 57px;
+height: 192px;
+width: 220px !important;
 }
-td{
-    text-overflow: ellipsis !important;
-    height: 57px;
-}
-.css-1yhpg23-MuiTableCell-root{
-    padding: 0px !important;
-}
+
 }
