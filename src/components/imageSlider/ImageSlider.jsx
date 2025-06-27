@@ -18,6 +18,60 @@ export const ImageSlider = ({ slides }) => {
         setWidth(sliderWidth);
     };
 
+
+    const sliderLineStyle = ()=>({
+        width:  width < MAX_IMAGE_WIDTH ? width : MAX_IMAGE_WIDTH + 'px',
+        transform: `translateX(${-(currentIndex * (width < MAX_IMAGE_WIDTH ? width : MAX_IMAGE_WIDTH))}px)`
+    })
+    const imagesStyle = () => ({
+        width: width < MAX_IMAGE_WIDTH ? width + 'px' : MAX_IMAGE_WIDTH + 'px',
+        height: 'auto'
+    });
+
+    const handleMouseDown = (e) => {
+        e.preventDefault();
+        setIsDown(true);
+        if (sliderContainerRef.current) {
+            sliderContainerRef.current.classList.add('active');
+            setStartX(e.pageX - sliderContainerRef.current.offsetLeft);
+        }
+    };
+
+    const handleMouseLeave = (e) => {
+        e.preventDefault();
+        setIsDown(false);
+        if (sliderContainerRef.current) {
+            sliderContainerRef.current.classList.remove('active');
+        }
+    };
+
+    const handleMouseUp = (e) => {
+        e.preventDefault();
+        setIsDown(false);
+        if (sliderContainerRef.current) {
+            sliderContainerRef.current.classList.remove('active');
+        }
+    };
+    const handleSlideLeft = () => {
+        setCurrentIndex(prevIndex => prevIndex === 0 ? slides.length - 1 : prevIndex - 1);
+    };
+    
+    const handleSlideRight = ()=>{
+        setCurrentIndex(prevIndex => prevIndex === slides.length - 1 ? 0 : prevIndex + 1)
+    }
+    const handleMouseMove = (e) => {
+        if (!isDown) return;
+        const x = e.pageX - sliderContainerRef.current.offsetLeft;
+        const walk = x - startX;
+        const direction = walk > 0 ? 1 : -1;
+        setIsDown(false);
+        if (direction === -1) {
+            handleSlideRight();
+        } else if (direction === 1) {
+            handleSlideLeft();
+
+        }
+    };
     useEffect(() => {
         setCurrentIndex(0); 
     }, [slides]);
@@ -95,70 +149,7 @@ export const ImageSlider = ({ slides }) => {
       slider.removeEventListener('touchend', onTouchEnd);
       slider.removeEventListener('touchcancel', onTouchEnd);
     };
-  }, [handleSlideLeft, handleSlideRight]);
-
-
-    const sliderLineStyle = ()=>({
-        width:  width < MAX_IMAGE_WIDTH ? width : MAX_IMAGE_WIDTH + 'px',
-        transform: `translateX(${-(currentIndex * (width < MAX_IMAGE_WIDTH ? width : MAX_IMAGE_WIDTH))}px)`
-    })
-    const imagesStyle = () => ({
-        width: width < MAX_IMAGE_WIDTH ? width + 'px' : MAX_IMAGE_WIDTH + 'px',
-        height: 'auto'
-    });
-
-    const handleMouseDown = (e) => {
-        e.preventDefault();
-        setIsDown(true);
-        if (sliderContainerRef.current) {
-            sliderContainerRef.current.classList.add('active');
-            setStartX(e.pageX - sliderContainerRef.current.offsetLeft);
-        }
-    };
-
-    const handleMouseLeave = (e) => {
-        e.preventDefault();
-        setIsDown(false);
-        if (sliderContainerRef.current) {
-            sliderContainerRef.current.classList.remove('active');
-        }
-    };
-
-    const handleMouseUp = (e) => {
-        e.preventDefault();
-        setIsDown(false);
-        if (sliderContainerRef.current) {
-            sliderContainerRef.current.classList.remove('active');
-        }
-    };
-    const handleSlideLeft = () => {
-        setCurrentIndex(prevIndex => prevIndex === 0 ? slides.length - 1 : prevIndex - 1);
-    };
-    
-    const handleSlideRight = ()=>{
-        setCurrentIndex(prevIndex => prevIndex === slides.length - 1 ? 0 : prevIndex + 1)
-    }
-    const handleMouseMove = (e) => {
-        if (!isDown) return;
-        const x = e.pageX - sliderContainerRef.current.offsetLeft;
-        const walk = x - startX;
-        const direction = walk > 0 ? 1 : -1;
-        setIsDown(false);
-        if (direction === -1) {
-            handleSlideRight();
-        } else if (direction === 1) {
-            handleSlideLeft();
-
-        }
-    };
-    const handleTouchStart = (e) => {
-
-        setIsTouching(true);
-        setStartTouchX(e.touches[0].clientX);
-        setStartTouchY(e.touches[0].clientY);
-
-    };
-    
+  }, []);
 
     return (
         <div className="slider">
