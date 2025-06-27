@@ -92,31 +92,46 @@ export const ImageSlider = ({ slides }) => {
 
     };
     
-    const handleTouchMove = (e) => {
-        if (!isTouching) return;
+const TOUCH_ANGLE_THRESHOLD = 45; // Максимальный угол (в градусах) для горизонтального свайпа
 
-        const currentX = e.touches[0].clientX;
-        const currentY = e.touches[0].clientY;
-    
-        const diffX = currentX - startTouchX;
-        const diffY = currentY - startTouchY;
-    
-        const horizontalSwipeThreshold = 1; 
-    
-        if (Math.abs(diffY) > Math.abs(diffX)) {
-            setIsTouching(false);
-            return;
-        }
-    
-        setIsTouching(false);
+const handleTouchMove = (e) => {
+  if (!isTouching) return;
 
+  const currentX = e.touches[0].clientX;
+  const currentY = e.touches[0].clientY;
 
-        if (diffX > horizontalSwipeThreshold) {
-            handleSlideLeft();
-        } else if (diffX < -horizontalSwipeThreshold) {
-            handleSlideRight();
-        }
-    };
+  const diffX = currentX - startTouchX;
+  const diffY = currentY - startTouchY;
+
+  // Проверка, чтобы движение было заметным (порог)
+  if (Math.sqrt(diffX * diffX + diffY * diffY) < 5) {
+    return;
+  }
+
+  // Вычисляем угол свайпа в градусах
+  const touchAngle = (Math.atan2(Math.abs(diffY), Math.abs(diffX)) * 180) / Math.PI;
+
+  // Если угол больше порога — считаем, что это вертикальный скролл, а не свайп
+  if (touchAngle > TOUCH_ANGLE_THRESHOLD) {
+    // Отменяем свайп, разрешаем скроллить страницу
+    setIsTouching(false);
+    return;
+  }
+
+  // Блокируем скролл страницы (если возможно)
+  e.preventDefault();
+
+  setIsTouching(false);
+
+  const horizontalSwipeThreshold = 1; // Можно увеличить по необходимости
+
+  if (diffX > horizontalSwipeThreshold) {
+    handleSlideLeft();
+  } else if (diffX < -horizontalSwipeThreshold) {
+    handleSlideRight();
+  }
+};
+
     const handleTouchEnd = (e)=>{
         document.body.classList.remove("is-touching")
     }
