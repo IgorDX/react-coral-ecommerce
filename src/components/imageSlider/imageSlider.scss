@@ -2,14 +2,16 @@
     display: flex;
     gap: 10px;
     max-width: 100%;
+            @media(max-width:1192px){
+              flex-direction: column-reverse;
+        }
     .small-slider{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        max-height: 603px;
-        overflow: auto;
-        overflow-x: hidden;
+        overflow: hidden;
+
+
         .slider-item{
+            min-width: 88px;
+            min-height: 88px;
             cursor: pointer;
             img{
             width: 88px;
@@ -19,12 +21,20 @@
         &::-webkit-scrollbar {
         display: none;
         }
-        @media(max-width:1192px){
-            display: none;
+
+    }
+    .small-slider-line{
+        flex-direction: column;
+        gap: 10px;
+        display: flex;
+
+                @media(max-width:1192px){
+              flex-direction: row;
         }
     }
 }
 .slider-container{
+    position: relative;
     height: auto;
     max-width: 600px;
     cursor: grab;
@@ -32,16 +42,20 @@
 
     
 }
-
+.slider-image{
+    width: 100%;
+}
 .slider-container.is-touching{
     touch-action: none;
 }
 .slide-item{
+     flex: 0 0 100%;
     position: relative;
 }
 
 .slider-line{
     display: flex;
+    height: 100%;
     transition: transform 0.3s ease-in-out;
 }
 
