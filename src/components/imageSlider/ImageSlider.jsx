@@ -60,6 +60,8 @@ export const ImageSlider = ({ slides }) => {
       sliderContainerRef.current.classList.add('active');
       setStartX(e.pageX);
       sliderLineRef.current.style.transition = "none";
+      document.addEventListener("mousemove", handleMouseMove);
+      document.addEventListener("mouseup", handleMouseUp);
     }
   };
 
@@ -82,6 +84,8 @@ export const ImageSlider = ({ slides }) => {
     if (sliderContainerRef.current) {
       sliderContainerRef.current.classList.remove('active');
     }
+    document.removeEventListener("mousemove", handleMouseMove);
+    document.removeEventListener("mouseup", handleMouseUp);
   };
 
   const handleSlideLeft = () => {
@@ -134,6 +138,8 @@ export const ImageSlider = ({ slides }) => {
     isTouchingRef.current = true;
     startTouchXRef.current = e.touches[0].clientX;
     startTouchYRef.current = e.touches[0].clientY;
+    document.addEventListener('touchmove', onTouchMove, { passive: false });
+    document.addEventListener('touchend', onTouchEnd, { passive: true });
   };
 
   const onTouchMove = (e) => {
@@ -149,12 +155,13 @@ export const ImageSlider = ({ slides }) => {
     const touchAngle = (Math.atan2(Math.abs(diffY), Math.abs(diffX)) * 180) / Math.PI;
 
     if (touchAngle > TOUCH_ANGLE_THRESHOLD) {
+      sliderLineRef.current.style.transition = "transform 0.3s ease-in-out";
+      sliderLineRef.current.style.transform = `translateX(-${currentIndex * width}px)`;
       isTouchingRef.current = false;
       return;
     }
 
     e.preventDefault(); 
-    console.log("blocking")
     let newPosition = currentIndex * width - (currentX - startTouchXRef.current);
     const maxScroll = (slides.length - 1) * width;
     newPosition = Math.max(0, Math.min(newPosition, maxScroll));
@@ -196,8 +203,6 @@ export const ImageSlider = ({ slides }) => {
     const handleTouchEnd = (e) => onTouchEndRef.current(e);
 
     slider.addEventListener('touchstart', handleTouchStart, { passive: true });
-    slider.addEventListener('touchmove', handleTouchMove, { passive: false });
-    slider.addEventListener('touchend', handleTouchEnd, { passive: true });
 
     return () => {
       slider.removeEventListener('touchstart', handleTouchStart);
